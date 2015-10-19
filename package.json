@@ -45,5 +45,8 @@
     "genetic algorithm",
     "art"
   ],
-  "homepage": "https://github.com/automata/genart"
+  "homepage": "https://github.com/automata/genart",
+  "dependencies": {
+    "ml-pca": "^0.1.0"
+  }
 }
