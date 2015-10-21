@@ -1,6 +1,3 @@
-sum = (array) ->
-  array.reduce (t, s) -> t + s
-
 class Individual
   dna: []
   fitness: 0.0
@@ -12,10 +9,12 @@ class Individual
         @dna.push Math.floor Math.random() * 10
     else if params.dna
       @dna = params.dna
+    if params.fitness
+      @fitness = params.fitness
 
   mutate: ->
     for i in [0...@dna.length]
-      @dna[i] += 1
+      @dna[i] = (@dna[i] + 1) % 10
 
   crossover: (other) ->
     cutPoint = Math.floor @dna.length / 2
@@ -25,6 +24,11 @@ class Individual
       dna: dad.concat mom
 
   score: ->
-    @fitness = sum @dna
+    @fitness = @dna.reduce (t, s) -> t + s
+
+  copy: ->
+    new Individual
+      dna: @dna.slice 0
+      fitness: @fitness
 
 exports.Individual = Individual
