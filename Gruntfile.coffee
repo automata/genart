@@ -38,6 +38,13 @@ module.exports = ->
       files: ['specs/*.coffee', 'src/*.coffee']
       tasks: ['test']
 
+    # BDD tests on Node.js
+    mochaTest:
+      nodejs:
+        src: ['spec/*.coffee']
+        options:
+          reporter: 'spec'
+
     # Coding standards
     coffeelint:
       components: ['Gruntfile.coffee', 'specs/*.coffee', 'src/*.coffee']
@@ -49,7 +56,11 @@ module.exports = ->
   @loadNpmTasks 'grunt-contrib-watch'
   @loadNpmTasks 'grunt-coffeelint'
   @loadNpmTasks 'grunt-browserify'
+  @loadNpmTasks 'grunt-mocha-test'
 
   @registerTask 'build', ['coffee', 'browserify']
-  @registerTask 'test', ['coffeelint', 'coffee']
-  @registerTask 'default', ['build']
+  @registerTask 'test', 'Run automated tests', (target = 'all') =>
+    @task.run 'coffeelint'
+    @task.run 'coffee'
+    @task.run 'mochaTest'
+  @registerTask 'default', ['test']
