@@ -1,5 +1,6 @@
 # Generative Art by Interactive Genetic Algorithm
 
+![](./docs/poster-shot.png)
 
 1. Generate a population of artefacts
 2. Display phenotypes (e.g. paintings) and genotypes (feature points)
