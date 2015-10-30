@@ -1,6 +1,5 @@
 # Generative Art by Interactive Genetic Algorithm
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coquina_variation3.jpg/250px-Coquina_variation3.jpg)
 
 1. Generate a population of artefacts
 2. Display phenotypes (e.g. paintings) and genotypes (feature points)
