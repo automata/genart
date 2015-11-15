@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GenArt</title>
+
+  <link rel="stylesheet" type="text/css" href="./style.css">
+
+  <script type="text/javascript" src="./dist/app.js"></script>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+
+      var App = require('components/App');
+      var React = require('react/addons');
+
+      var mountPoint = document.getElementById('container');
+      var mounted = null;
+      var props = {};
+      props.className = 'app';
+      var app = React.createElement(App, props);
+      mounted = React.render(app, mountPoint);
+
+    });
+  </script>
+</body>
+</html>
